@@ -4,6 +4,7 @@
   box-sizing: border-box;
 }
 
+
 :root {
   font-size: 62.5%;
   --ff-principal: 'Roboto', sans-serif;
@@ -23,6 +24,7 @@ body {
   background-color: #000;
   color: var(--fontcolor);
   padding: 2rem;
+  overflow-y: hidden;
 }
 
 #app {
@@ -113,15 +115,16 @@ main {
   border-radius: 1.2rem;
   border: 1px solid var(--tableborder); 
   overflow: hidden;
-  width: 100%;
-  height: 65%;
+  width: 112rem;
+  min-height: 65%;
+  display: flex;
+  flex-direction: column;
 }
 
 table {
   width: 100%;
   border-collapse: collapse;
-  position: relative;
-  z-index: -1;
+  table-layout: fixed;
 }
 
 table * {
@@ -129,13 +132,48 @@ table * {
   font-size: 2rem;
   font-style: normal;
   font-weight: 700;
-  line-height: 160%;
+  line-height: 100%;
+}
+
+table thead tr {
+  display: block;
+  position: relative;
 }
 
 table th {
   background-color: var(--tableheadcolor);
   text-align: left;
   padding: 1.6rem 4rem ;
+}
+
+table th, table td {
+  min-width: 30rem;
+}
+
+table tbody {
+  display: block;
+  overflow: overlay;
+  width: 100%;
+  height: 55rem;
+  overflow-y: scroll;
+  overflow-x: hidden;
+  scrollbar-width: auto;
+  scrollbar-color: #4A808C transparent;
+}
+
+table tbody::-webkit-scrollbar-track {
+  background-color: transparent;
+}
+
+table tbody::-webkit-scrollbar {
+  width: 2.2rem;
+}
+
+table tbody::-webkit-scrollbar-thumb {
+  border-radius: 1rem;
+  background-color: #4A808C;
+  border: 0.8rem solid transparent;
+  background-clip: content-box;
 }
 
 tbody tr:nth-child(odd) {
@@ -154,6 +192,7 @@ tbody tr:last-child {
 
 tbody td {
   padding: 2.4rem 4rem;
+  height: 10.4rem;
 }
 
 .user {
@@ -193,6 +232,7 @@ tbody td {
   align-items: center;
   justify-content: center;
   gap: 6rem;
+  flex-grow: 2;
 }
 
 #no-favorites img {
@@ -207,7 +247,7 @@ tbody td {
   font-weight: 700; 
 }
 
-.hide {
+#no-favorites.hide {
   display: none;
 }
 
