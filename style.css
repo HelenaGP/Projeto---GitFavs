@@ -25,6 +25,7 @@ body {
   color: var(--fontcolor);
   padding: 2rem;
   overflow-y: hidden;
+  overflow-x: auto;
 }
 
 #app {
@@ -116,7 +117,6 @@ main {
   border: 1px solid var(--tableborder); 
   overflow: hidden;
   width: 112rem;
-  min-height: 65%;
   display: flex;
   flex-direction: column;
 }
@@ -154,7 +154,7 @@ table tbody {
   display: block;
   overflow: overlay;
   width: 100%;
-  height: 55rem;
+  max-height: 55rem;
   overflow-y: scroll;
   overflow-x: hidden;
   scrollbar-width: auto;
@@ -224,15 +224,17 @@ tbody td {
   background-color: transparent;
   border: none;
   color: var(--removecolor);
+  cursor: pointer;
 }
 
 #no-favorites {
-  height: 100%;
+  height: 55rem;
   display: flex;
   align-items: center;
   justify-content: center;
   gap: 6rem;
   flex-grow: 2;
+  background-color: #030B0D;
 }
 
 #no-favorites img {
